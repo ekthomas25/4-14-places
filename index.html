@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script src="js/jquery-3.6.0.js"></script>
   <script src="js/scripts.js"></script>
-  <title>Document</title>
+  <title>Places You've Been</title>
 </head>
 <body>
-  
+  <div class="container">
+    <h2>Enter Destination Information</h2>
+  <form id="new-destination" class="form-group">
+    <input type="text" id="location" placeholder="Enter the location">
+    <input type="text" id="landmarks" placeholder="Enter the landmarks">
+    <input type="text" id="time" placeholder="Enter the time of the year">
+    <input type="text" id="notes" placeholder="Enter additional notes">
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+
+  <h2>Destination:</h2>
+  <ul id="destinations"></ul>
+
+  <div id="show-destination">
+    <p>Location: <span class="location"></span></p>
+    <p>Landmarks: <span class="landmarks"></span></p>
+    <p>Time of the Year: <span class="time"></span></p>
+    <p>Notes: <span class="notes"></span></p>
+
+  </div>
+</div>
 </body>
 </html>

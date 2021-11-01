@@ -29,3 +29,20 @@ CollectionOfPlaces.prototype.assignId = function() {
 this.currentID += 1;
 return this.currentID;
 }
+
+//User Interface Logic
+
+let collectionOfPlaces = new CollectionOfPlaces();
+
+$(document).ready(function() {
+  $("form#new-destination").submit(function(event) {
+    event.preventDefault();
+    const inputtedLocation = $("input#location").val();
+    const inputtedLandmarks = $("input#landmarks").val();
+    const inputtedTime = $("input#time").val();
+    const inputtedNotes = $("input#notes").val();
+    let newDestination = new Destination(inputtedLocation, inputtedLandmarks, inputtedTime, inputtedNotes);
+    collectionOfPlaces.addDestination(newDestination);
+    console.log(collectionOfPlaces.destinations);
+  });
+});
