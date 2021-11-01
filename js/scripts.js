@@ -12,6 +12,11 @@ Destination.prototype.locationMethod = function() {
 };
 
 //Business Logic for the colletcion of Places
-function CollectionofPlaces() {
+
+function CollectionOfPlaces() {
   this.destinations = {};
 }
+
+CollectionOfPlaces.prototype.addDestination = function(destination) {
+  this.destinations[destination.location] = location;
+};
