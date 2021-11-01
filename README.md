@@ -21,4 +21,17 @@ Code:
 let collectionOfPlaces = new CollectionOfPlaces();
 let destination1 = new Destination("portland", "big pink", "june", "portland is weird");
 collectionOfPlaces.addDestination(destination1);
-Expected Output: {"Portland":location}
+Expected Output: {"Portland":Location}
+
+Test: "It should add a unique ID to each new destination that is added."
+Code:
+let destination1 = new Destination("portland", "big pink", "june", "portland is weird");
+CollectionOfPlaces.prototype.assignID();
+Expected Output: 1
+
+
+destination2 = new Destination("seattle", "space needle", "july", "seattle is rainy");
+
+Update CollectionOfPlaces constructor
+Define another prototype for assigning ID
+Update addDestination prototype
