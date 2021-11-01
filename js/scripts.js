@@ -30,9 +30,26 @@ this.currentID += 1;
 return this.currentID;
 }
 
+CollectionOfPlaces.prototype.findDestination = function(id) {
+  if (this.destinations[id] != undefined) {
+    return this.destinations[id];
+  }
+  return false;
+};
+
 //User Interface Logic
 
 let collectionOfPlaces = new CollectionOfPlaces();
+
+function displayDestinationDetails(collectionOfPlacesToDisplay){
+  let destinationsList = $("ul#destinations");
+  let htmlForDestinationInfo = "";
+  Object.keys(collectionOfPlacesToDisplay.destinations).forEach(function(key) {
+    const destination = collectionOfPlacesToDisplay.findDestination(key);
+    htmlForDestinationInfo += "<li id=" + destination.id + ">" + destination.location + "</li>";
+  });
+  destinationsList.html(htmlForDestinationInfo);
+}
 
 $(document).ready(function() {
   $("form#new-destination").submit(function(event) {
@@ -43,6 +60,6 @@ $(document).ready(function() {
     const inputtedNotes = $("input#notes").val();
     let newDestination = new Destination(inputtedLocation, inputtedLandmarks, inputtedTime, inputtedNotes);
     collectionOfPlaces.addDestination(newDestination);
-    console.log(collectionOfPlaces.destinations);
+    displayDestinationDetails(collectionOfPlaces);
   });
 });
